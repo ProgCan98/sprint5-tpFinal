@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gestión de Países Hispanohablantes</h1>
+      <nav class="navbar">
+        <div class="navbar-container">
+          <a href="/api" class="navbar-logo">🦸 SuperApp</a>
+          <ul class="navbar-links">
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/dashboard">Lista</a></li>
+            <li><a href="/add">Agregar País</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main><%- body %></main>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          © <%= new Date().getFullYear() %> SuperApp. Todos los derechos
+          reservados.
+        </p>
+        <p>
+          Contacto:
+          <a href="mailto:contacto@gmail.com">contacto@gmail.com</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

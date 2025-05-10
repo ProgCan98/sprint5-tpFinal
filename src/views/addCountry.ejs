@@ -1,0 +1,91 @@
+<div class="form-container">
+  <% if (typeof errores !== 'undefined' && errores.length > 0) { %>
+  <div class="errores">
+    <ul>
+      <% errores.forEach(error => { %>
+      <li><%= error %></li>
+      <% }) %>
+    </ul>
+  </div>
+  <% } %>
+
+  <form action="/add" method="POST">
+    <label for="name.official">Nombre Oficial:</label>
+    <input
+      type="text"
+      id="name.official"
+      name="name[official]"
+      value="<%= typeof country !== 'undefined' && country.name ? country.name.official : '' %>"
+      required
+    />
+
+    <label for="capital">Capital (separada por comas):</label>
+    <input
+      type="text"
+      id="capital"
+      name="capital"
+      value="<%= typeof country !== 'undefined' && country.capital ? country.capital.join(', ') : '' %>"
+    />
+
+    <label for="borders"
+      >Fronteras (códigos de 3 letras, separados por comas):</label
+    >
+    <input
+      type="text"
+      id="borders"
+      name="borders"
+      value="<%= typeof country !== 'undefined' && country.borders ? country.borders.join(', ') : '' %>"
+    />
+
+    <label for="area">Área (km²):</label>
+    <input
+      type="number"
+      id="area"
+      name="area"
+      value="<%= typeof country !== 'undefined' ? country.area : '' %>"
+      required
+    />
+
+    <label for="population">Población:</label>
+    <input
+      type="number"
+      id="population"
+      name="population"
+      value="<%= typeof country !== 'undefined' ? country.population : '' %>"
+      required
+    />
+
+    <label for="gini">Índice Gini (0-100):</label>
+    <input
+      type="number"
+      id="gini"
+      name="gini"
+      value="<%= typeof country !== 'undefined' ? country.gini : '' %>"
+      step="0.01"
+    />
+
+    <label for="timezones">Zonas Horarias (separadas por comas):</label>
+    <input
+      type="text"
+      id="timezones"
+      name="timezones"
+      value="<%= typeof country !== 'undefined' && country.timezones ? country.timezones.join(', ') : '' %>"
+    />
+
+    <label for="creador">Creador:</label>
+    <input
+      type="text"
+      id="creador"
+      name="creador"
+      value="<%= typeof country !== 'undefined' ? country.creador : 'Leandro' %>"
+      readonly
+    />
+
+    <button type="submit">Agregar</button>
+  </form>
+
+  <a href="/dashboard">Volver</a>
+</div>
+
+<!-- Explicación:
+Formulario para agregar un nuevo país, con campos para todos los atributos. -->
