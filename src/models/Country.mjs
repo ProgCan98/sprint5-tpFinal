@@ -47,7 +47,7 @@ const countrySchema = new mongoose.Schema({
   timezones: [String],
   creador: {
     type: String,
-    default: 'TuNombre', // Reemplaza 'TuNombre' con tu nombre real
+    default: 'Leandro', // Reemplaza 'TuNombre' con tu nombre real
   },
   createdAt: { type: Date, default: Date.now },
 });
