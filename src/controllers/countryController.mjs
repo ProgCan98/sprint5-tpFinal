@@ -93,6 +93,7 @@ class CountryController {
   fetchCountries = async (req, res) => {
     try {
       const result = await this.service.fetchCountriesFromAPI();
+      // Envía una respuesta HTTP con el resultado en formato JSON (ej. { message: 'Countries fetched and saved', count: 21 }).
       res.json(result);
     } catch (error) {
       res.status(500).json({ error: error.message });
