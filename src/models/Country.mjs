@@ -54,3 +54,5 @@ const countrySchema = new mongoose.Schema({
 
 const Country = mongoose.model('Country', countrySchema, 'Grupo-17');
 export default Country;
+
+// Este código define el modelo Country para MongoDB usando Mongoose

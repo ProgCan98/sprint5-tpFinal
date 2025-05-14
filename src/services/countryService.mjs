@@ -9,12 +9,14 @@ class CountryService {
   async fetchCountriesFromAPI() {
     try {
       const response = await axios.get('https://restcountries.com/v3.1/all');
+      // Filtra países que tienen el español como idioma.
       const countries = response.data.filter(
         (country) =>
           country.languages &&
           Object.values(country.languages).includes('Spanish')
       );
 
+      // Mapea los datos de la API al formato del modelo Country, excluyendo campos innecesarios.
       const countryData = countries.map((country) => {
         const {
           translations,
@@ -42,9 +44,10 @@ class CountryService {
           creador: 'Leandro', // Reemplaza con tu nombre real
         };
       });
-
+      // Borra todos los documentos existentes en la colección y guarda los nuevos datos.
       await this.repository.deleteAll();
       await this.repository.insertMany(countryData);
+      // Retorna un mensaje con la cantidad de países guardados.
       return {
         message: 'Countries fetched and saved',
         count: countryData.length,
